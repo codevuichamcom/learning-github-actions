@@ -28,13 +28,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v4
+    - uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: lehongquan15a/learning-github-actions
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: Dockerfile   # <--- Thêm dòng này
-        context: .               # <--- Thêm dòng này luôn
          
